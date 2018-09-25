@@ -1,0 +1,20 @@
+2. Perform the below given activities:
+a. Apply PCA to the dataset and show proportion of variance
+pca <- prcomp(USArrests, scale = TRUE)
+eigs <- pca$sdev^2
+eigs[1] / sum(eigs)
+[1] 0.6200604
+
+b. Perform PCA using SVD approach
+library(dagdata)
+data(tissuesGeneExpression)
+library(rafalib)
+group <- as.fumeric(tab$Tissue)
+x <- t(e)
+pc <- prcomp(x)
+# ?prcomp
+names(pc)
+
+
+c. Show the graphs of PCA components
+plot(pc$x[, 1], pc$x[, 2], col = group, main = "PCA", xlab = "PC1", ylab = "PC2")
